@@ -4,6 +4,7 @@ const bodyParser=require('body-parser')
 const app=express()
 const fileUpload =require('express-fileupload')
 
+
 app.use(fileUpload())
 app.use(cors())
 app.use(bodyParser.json())
@@ -12,9 +13,6 @@ require('dotenv').config()
 const admin = require('firebase-admin');
 const { ObjectID } = require('mongodb')
 
-app.get('/',(req,res)=>{
-   res.send("connected successfully.")
-})
 
 
 const MongoClient = require('mongodb').MongoClient;
@@ -24,12 +22,13 @@ client.connect(err => {
   const apartmentCollection = client.db(`${process.env.DB_Name}`).collection("apartments");
   // perform actions on the collection object
 
-  app.get('/check',(req,res)=>{
-      apartmentCollection.find({})
-      .toArray((err,docs)=>{
-         res.send(docs)
-      })
-   })
+  app.get('/send',(req,res)=>{
+     apartmentCollection.find({})
+     .toArray((err,docs)=>{
+        res.send(docs)
+     })
+  })
+   
 
 
 // end 
