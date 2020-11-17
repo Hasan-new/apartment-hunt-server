@@ -74,9 +74,7 @@ client.connect(err => {
 
 
 
-const PORT=process.env.PORT || 3001
-app.listen(PORT,()=>{
-    console.log('Server is running with '+PORT)
-})
+
+app.listen(process.env.PORT || 3001)
 
 
