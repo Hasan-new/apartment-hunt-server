@@ -26,7 +26,7 @@ const uri = `mongodb+srv://teamUser:${process.env.DB_PASS}@cluster0.xjgqp.mongod
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
 
-  const apartmentCollection = client.db(`${process.env.DB_Name}`).collection("apartments");
+  const apartmentCollection = client.db(`${process.env.DB_Name}`).collection(`${process.env.DB_APARTMENTS_COLLECTION}`);
   // perform actions on the collection object
 
   app.get('/apartments',(req,res)=>{
@@ -74,9 +74,7 @@ client.connect(err => {
 
 
 
-const PORT=process.env.PORT
-app.listen(PORT,()=>{
-    console.log('Server is running with '+PORT)
-})
+
+app.listen(process.env.PORT || 3001)
 
 
