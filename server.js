@@ -80,32 +80,3 @@ app.listen(PORT,()=>{
 })
 
 
-
-//----------------------------
-// app.post('/add-service',(req,res)=>{
-//    const file=req.files.file
-//    const serviceTitle=req.body.serviceTitle
-//    const description=req.body.description
-   
-//    const encImg=file.data.toString('base64')
-//      const image={
-//        contentType:file.mimetype,
-//        size:file.size,
-//        img:Buffer(encImg,'base64')
-//      }
-   
-//    servicesCollection.insertOne({
-//      img:image, description, serviceTitle
-//    })
-//    .then(result=>{
-//      res.send(result.insertedCount>0)
-//      console.log(result)
-//    })
-//  })
-
-//  app.get('/show-all-service',(req,res)=>{
-//    servicesCollection.find({})
-//    .toArray((error,documents)=>{
-//      res.send(documents)
-//    })
-//  })
